@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.codepath.simpletodo.MainActivity">
+
+    <Button
+        android:id="@+id/btnAddItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add"
+        android:onClick="onAddItem"
+        tools:layout_editor_absoluteX="289dp"
+        tools:layout_editor_absoluteY="447dp"
+        android:layout_alignBottom="@+id/etEditText"
+        android:layout_alignRight="@+id/lvItems"
+        android:layout_alignEnd="@+id/lvItems" />
+
+    <ListView
+        android:id="@+id/lvItems"
+        android:layout_width="369dp"
+        android:layout_height="427dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/etEditText"
+        android:layout_width="248dp"
+        android:layout_height="41dp"
+        android:ems="10"
+        android:hint="@string/add_item"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="454dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/lvItems"
+        android:layout_alignLeft="@+id/lvItems"
+        android:layout_alignStart="@+id/lvItems" />
+</RelativeLayout>
