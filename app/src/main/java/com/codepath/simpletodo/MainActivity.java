@@ -1,5 +1,6 @@
 package com.codepath.simpletodo;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import org.apache.commons.io.FileUtils;
 
@@ -38,6 +40,26 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+        lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(MainActivity.this, EditItemActivity.class);
+                intent.putExtra(Constants.POSITION, position);
+                intent.putExtra(Constants.VALUE, todoItems.get(position));
+                startActivityForResult(intent, 1);
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK) {
+            int position = data.getIntExtra(Constants.POSITION, -1);
+            String newItemValue = data.getStringExtra(Constants.VALUE);
+            todoItems.set(position, newItemValue);
+            aTodoAdapter.notifyDataSetChanged();
+            writeItems();
+        }
     }
 
     public void populateArrayItems() {
