@@ -23,15 +23,13 @@
         android:id="@+id/editItemText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="17dp"
-        android:layout_marginStart="17dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
-        android:layout_below="@+id/textView2"
+        android:layout_above="@+id/saveButton"
         android:layout_alignLeft="@+id/textView2"
         android:layout_alignStart="@+id/textView2"
-        android:layout_marginTop="76dp" />
+        android:layout_marginBottom="60dp" />
 
     <TextView
         android:id="@+id/textView2"
@@ -45,4 +43,19 @@
         android:layout_alignParentStart="true"
         android:layout_marginLeft="22dp"
         android:layout_marginStart="22dp" />
+
+    <EditText
+        android:id="@+id/dateEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/editItemText"
+        android:layout_alignBottom="@+id/editItemText"
+        android:layout_toEndOf="@+id/editItemText"
+        android:layout_toRightOf="@+id/editItemText"
+        android:editable="false"
+        android:ems="10"
+        android:hint="Enter date"
+        android:inputType="date"
+        android:singleLine="true" />
+
 </RelativeLayout>
